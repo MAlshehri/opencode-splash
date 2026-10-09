@@ -12,6 +12,7 @@ Recorded on 2026-10-09. These results describe the preview candidate and the env
 | Real OpenCode V2, existing Qwen Splash server | Returned `HOOK_OK`; original instance/PID preserved; zero new launches |
 | Public artifact path/secret check | No personal home paths, keys, model artifacts or test fixtures in shipped code/docs |
 | Packaged distribution | Clean tarball installation added five packages, with no SDK installed; native OpenCode supplied its SDK and the cold-start smoke passed |
+| Public GitHub distribution | OpenCode 2.0.26 installed commit `7febb4c7ddd952cd4c0c4b031a36d65d02d718be` in an isolated config; plugin active and model registered, zero model requests, no Splash startup |
 
 Environment: OpenCode 2.0.26, Splash 1.3.0, Node 24.21.0, macOS 27.0.1, Apple M3 Max with 36 GiB unified memory. Real model: `incoai/Qwen3.8-27B-Splash`, existing server context 65536, configured memory budget 24 GiB.
 
