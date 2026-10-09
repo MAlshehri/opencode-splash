@@ -1,0 +1,63 @@
+{
+  "name": "opencode-splash",
+  "version": "0.1.0",
+  "description": "Start and reuse a local Splash server on demand from OpenCode V2.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "license": "MIT",
+  "author": "Mohammad M. Alshehri",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MAlshehri/opencode-splash.git"
+  },
+  "bugs": { "url": "https://github.com/MAlshehri/opencode-splash/issues" },
+  "homepage": "https://github.com/MAlshehri/opencode-splash#readme",
+  "engines": {
+    "node": ">=22"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "index.ts",
+    "docs",
+    "CONTRIBUTING.md",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test test/*.test.mjs",
+    "test:opencode": "npm run build && node test/opencode-smoke.mjs",
+    "check": "tsc -p tsconfig.json --noEmit",
+    "prepack": "npm run build"
+  },
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "splash",
+    "local-llm",
+    "apple-silicon"
+  ],
+  "dependencies": {
+    "proper-lockfile": "^4.1.2"
+  },
+  "peerDependencies": {
+    "@opencode/plugin": ">=2.0.26 <3"
+  },
+  "peerDependenciesMeta": {
+    "@opencode/plugin": { "optional": true }
+  },
+  "devDependencies": {
+    "@opencode/plugin": "2.0.26",
+    "@types/node": "^22.0.0",
+    "@types/proper-lockfile": "^4.1.4",
+    "typescript": "^5.9.0"
+  }
+}
