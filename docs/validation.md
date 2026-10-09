@@ -1,11 +1,11 @@
 # Candidate validation
 
-Recorded on 2026-10-09. These results describe this local candidate, not a published package or universal hardware benchmark.
+Recorded on 2026-10-09. These results describe the preview candidate and the environments checked, not a universal hardware benchmark.
 
 | Check | Result |
 | --- | --- |
 | TypeScript strict build/type check | Passed |
-| Lifecycle tests | 17 passed |
+| Lifecycle and packaging tests | 18 passed |
 | In-process concurrency | Twenty callers shared one launch |
 | Cross-process coordination | Six independent Node processes shared one launch |
 | Real OpenCode V2, fake cold server | Model catalog did not start the server; first request launched once, waited for readiness, returned `HOOK_OK` |

@@ -1,6 +1,6 @@
 {
   "name": "opencode-splash",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Start and reuse a local Splash server on demand from OpenCode V2.",
   "type": "module",
   "main": "./dist/index.js",
@@ -32,11 +32,11 @@
     "CHANGELOG.md"
   ],
   "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "test": "npm run build && node --test test/*.test.mjs",
-    "test:opencode": "npm run build && node test/opencode-smoke.mjs",
-    "check": "tsc -p tsconfig.json --noEmit",
-    "prepack": "npm run build"
+    "compile": "tsc -p tsconfig.json",
+    "test": "npm run compile && node --test test/*.test.mjs",
+    "test:opencode": "npm run compile && node test/opencode-smoke.mjs",
+    "test:install": "node test/opencode-install.mjs",
+    "check": "tsc -p tsconfig.json --noEmit"
   },
   "keywords": [
     "opencode",

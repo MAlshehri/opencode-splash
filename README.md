@@ -2,7 +2,7 @@
 
 Start Splash when OpenCode needs your local model. Reuse the server across requests, sessions and terminals.
 
-**Preview release:** install from [GitHub](https://github.com/MAlshehri/opencode-splash/releases/tag/v0.1.0). This release targets OpenCode V2 and is not available on npm yet. See the [validation record](docs/validation.md) for completed checks and remaining real-model acceptance scenarios.
+**Preview release:** install from [GitHub](https://github.com/MAlshehri/opencode-splash/releases/tag/v0.1.1). This release targets OpenCode V2 and is not available on npm yet. See the [validation record](docs/validation.md) for completed checks and remaining real-model acceptance scenarios.
 
 Requires OpenCode **V2 2.0.26 or newer**, Splash **1.3.0 or newer**, and macOS on Apple Silicon for automatic startup. Model compatibility and hardware requirements come from Splash. This is an independent plugin, not an official OpenCode or Splash integration.
 
@@ -35,7 +35,7 @@ Add this entry to your global `~/.config/opencode/opencode.json(c)` or a project
   "$schema": "https://opencode.ai/config.json",
   "plugins": [
     {
-      "package": "github:MAlshehri/opencode-splash#v0.1.0",
+      "package": "github:MAlshehri/opencode-splash#v0.1.1",
       "options": {
         "model": "incoai/Qwen3.8-27B-Splash",
         "maxContext": 65536,
@@ -60,7 +60,7 @@ For a local checkout, build it first and replace the package name with the check
 
 ```sh
 npm ci
-npm run build
+npm run compile
 ```
 
 ```json
@@ -148,6 +148,7 @@ OpenCode 2.0.26's request hook does not expose a cancellation signal. Interrupti
 npm ci
 npm test
 npm run check
+npm run test:install
 npm run test:opencode
 npm pack --dry-run
 ```
@@ -161,6 +162,8 @@ SPLASH_SMOKE_EXISTING_MODEL=incoai/Qwen3.8-27B-Splash npm run test:opencode
 ```
 
 The test verifies that the original server instance survives and no new process is launched. It sends one real inference request. Use `SPLASH_SMOKE_PORT` for a port other than 8000. The SDK is an optional peer supplied by OpenCode's host; production installation needs only the lock utility and its small dependency tree.
+
+`test:install` verifies the published GitHub package in a private OpenCode server, checking plugin activation and model registration with **zero model requests**. Pass a Git specification after `--` to check another tag or commit. Development uses `npm run compile` rather than a `build`/`prepack` script: npm treats those script names as Git dependency preparation triggers, which are incompatible with OpenCode's bundled installer. Compiled files are committed instead.
 
 Real model acceptance is separate: a manual cold start on supported hardware, a tool call, idle weight release and restore, and a live request through the plugin are required before a stable release. See [architecture](docs/architecture.md), [release guide](docs/releasing.md) and [contributing](CONTRIBUTING.md).
 

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1 — 2026-10-09 (preview)
+
+- Fix installation through OpenCode's Git package loader by removing npm Git preparation triggers (`build` and `prepack`); use `npm run compile` for development.
+- Add a package contract test and a read-only native OpenCode installation check that sends no model requests.
+
 ## 0.1.0 — 2026-10-09 (preview)
 
 - Native OpenCode V2 provider-scoped lazy Splash startup.
